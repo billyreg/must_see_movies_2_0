@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Movie</dt>
-      <!-- Display movie_id start -->
       <dd>
         <% if @filmography.movie.present? %>
           <%= link_to filmography.movie, filmography.movie %>
         <% end %>
       </dd>
-      <!-- Display movie_id end -->
 
       <dt>Director</dt>
-      <!-- Display director_id start -->
       <dd>
         <% if @filmography.director.present? %>
           <%= link_to filmography.director, filmography.director %>
         <% end %>
       </dd>
-      <!-- Display director_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back filmography, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link filmography start -->
       <div class="col">
         <%= link_to edit_filmography_url(filmography), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link filmography end -->
 
-      <!-- Delete link filmography start -->
       <div class="col">
         <%= link_to filmography, method: :delete, data: { confirm: "Do you really want to delete this filmography?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link filmography end -->
     </div>
   </div>
 
