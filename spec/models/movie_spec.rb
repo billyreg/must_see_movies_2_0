@@ -16,6 +16,8 @@ RSpec.describe Movie, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:cast) }
+
     end
 
     describe "Validations" do
