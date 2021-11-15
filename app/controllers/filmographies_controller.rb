@@ -3,7 +3,7 @@ class FilmographiesController < ApplicationController
 
   # GET /filmographies
   def index
-    @filmographies = Filmography.all
+    @filmographies = Filmography.page(params[:page]).per(10)
   end
 
   # GET /filmographies/1
