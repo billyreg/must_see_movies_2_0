@@ -16,6 +16,8 @@ RSpec.describe Movie, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:bookmark_users) }
+
     it { should have_many(:reviewing_users) }
 
     it { should have_many(:directors) }
