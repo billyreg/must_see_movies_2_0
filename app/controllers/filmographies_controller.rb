@@ -3,7 +3,8 @@ class FilmographiesController < ApplicationController
 
   # GET /filmographies
   def index
-    @filmographies = Filmography.page(params[:page]).per(10)
+    @q = Filmography.ransack(params[:q])
+    @filmographies = @q.result(:distinct => true).includes(:movie, :director).page(params[:page]).per(10)
   end
 
   # GET /filmographies/1
