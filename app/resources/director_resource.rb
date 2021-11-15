@@ -9,6 +9,8 @@ class DirectorResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :filmographies
+
   # Indirect associations
 
 end
