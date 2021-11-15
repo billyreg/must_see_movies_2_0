@@ -4,13 +4,13 @@ class Director < ApplicationRecord
   # Direct associations
 
   has_many   :filmographies,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :filmography,
-             :through => :filmographies,
-             :source => :movie
+             through: :filmographies,
+             source: :movie
 
   # Validations
 
@@ -19,5 +19,4 @@ class Director < ApplicationRecord
   def to_s
     created_at
   end
-
 end

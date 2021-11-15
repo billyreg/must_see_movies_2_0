@@ -1,6 +1,5 @@
 ActiveAdmin.register Review do
-
- permit_params :movie_id, :rating, :user_id, :comment
+  permit_params :movie_id, :rating, :user_id, :comment
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register Review do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

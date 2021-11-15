@@ -9,11 +9,10 @@ class DirectorResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :filmographies
+  has_many :filmographies
 
   # Indirect associations
 
   many_to_many :filmography,
                resource: MovieResource
-
 end

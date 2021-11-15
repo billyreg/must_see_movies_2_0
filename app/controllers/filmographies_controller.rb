@@ -1,15 +1,15 @@
 class FilmographiesController < ApplicationController
-  before_action :set_filmography, only: [:show, :edit, :update, :destroy]
+  before_action :set_filmography, only: %i[show edit update destroy]
 
   # GET /filmographies
   def index
     @q = Filmography.ransack(params[:q])
-    @filmographies = @q.result(:distinct => true).includes(:movie, :director).page(params[:page]).per(10)
+    @filmographies = @q.result(distinct: true).includes(:movie,
+                                                        :director).page(params[:page]).per(10)
   end
 
   # GET /filmographies/1
-  def show
-  end
+  def show; end
 
   # GET /filmographies/new
   def new
@@ -17,17 +17,16 @@ class FilmographiesController < ApplicationController
   end
 
   # GET /filmographies/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /filmographies
   def create
     @filmography = Filmography.new(filmography_params)
 
     if @filmography.save
-      message = 'Filmography was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Filmography was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @filmography, notice: message
       end
@@ -39,7 +38,7 @@ class FilmographiesController < ApplicationController
   # PATCH/PUT /filmographies/1
   def update
     if @filmography.update(filmography_params)
-      redirect_to @filmography, notice: 'Filmography was successfully updated.'
+      redirect_to @filmography, notice: "Filmography was successfully updated."
     else
       render :edit
     end
@@ -49,22 +48,22 @@ class FilmographiesController < ApplicationController
   def destroy
     @filmography.destroy
     message = "Filmography was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to filmographies_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_filmography
-      @filmography = Filmography.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def filmography_params
-      params.require(:filmography).permit(:movie_id, :director_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_filmography
+    @filmography = Filmography.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def filmography_params
+    params.require(:filmography).permit(:movie_id, :director_id)
+  end
 end

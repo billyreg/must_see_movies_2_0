@@ -13,7 +13,7 @@ class Api::V1::FilmographiesController < Api::V1::GraphitiController
     filmography = FilmographyResource.build(params)
 
     if filmography.save
-      render jsonapi: filmography, status: 201
+      render jsonapi: filmography, status: :created
     else
       render jsonapi_errors: filmography
     end
@@ -33,7 +33,7 @@ class Api::V1::FilmographiesController < Api::V1::GraphitiController
     filmography = FilmographyResource.find(params)
 
     if filmography.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: filmography
     end

@@ -13,5 +13,4 @@ class RoleResource < ApplicationResource
   belongs_to :movie
 
   # Indirect associations
-
 end
