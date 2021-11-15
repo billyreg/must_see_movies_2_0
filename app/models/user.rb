@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :reviewed_movies,
+             :through => :reviews,
+             :source => :movie
+
   # Validations
 
   # Scopes
