@@ -1,5 +1,7 @@
 ActiveAdmin.register Role do
 
+ permit_params :actor_id, :movie_id, :character
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
