@@ -42,8 +42,14 @@ class FilmographiesController < ApplicationController
   # DELETE /filmographies/1
   def destroy
     @filmography.destroy
-    redirect_to filmographies_url, notice: 'Filmography was successfully destroyed.'
+    message = "Filmography was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to filmographies_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
