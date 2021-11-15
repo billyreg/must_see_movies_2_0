@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Movie</dt>
       <!-- Display movie_id start -->
-      <dd><%= filmography.movie_id %></dd>
+      <dd>
+        <% if @filmography.movie.present? %>
+          <%= link_to filmography.movie, filmography.movie %>
+        <% end %>
+      </dd>
       <!-- Display movie_id end -->
 
       <dt>Director</dt>
       <!-- Display director_id start -->
-      <dd><%= filmography.director_id %></dd>
+      <dd>
+        <% if @filmography.director.present? %>
+          <%= link_to filmography.director, filmography.director %>
+        <% end %>
+      </dd>
       <!-- Display director_id end -->
 
     </dl>

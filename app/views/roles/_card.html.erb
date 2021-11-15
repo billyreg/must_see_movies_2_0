@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Actor</dt>
       <!-- Display actor_id start -->
-      <dd><%= role.actor_id %></dd>
+      <dd>
+        <% if @role.actor.present? %>
+          <%= link_to role.actor, role.actor %>
+        <% end %>
+      </dd>
       <!-- Display actor_id end -->
 
       <dt>Movie</dt>
       <!-- Display movie_id start -->
-      <dd><%= role.movie_id %></dd>
+      <dd>
+        <% if @role.movie.present? %>
+          <%= link_to role.movie, role.movie %>
+        <% end %>
+      </dd>
       <!-- Display movie_id end -->
 
       <dt>Character</dt>
