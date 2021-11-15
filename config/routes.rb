@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :filmographies
   resources :roles
   resources :directors
   devise_for :users
