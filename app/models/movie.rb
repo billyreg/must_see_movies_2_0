@@ -15,6 +15,10 @@ class Movie < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :directors,
+             :through => :filmographies,
+             :source => :director
+
   has_many   :cast,
              :through => :roles,
              :source => :actor

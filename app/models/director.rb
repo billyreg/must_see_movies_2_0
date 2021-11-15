@@ -6,6 +6,10 @@ class Director < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :filmography,
+             :through => :filmographies,
+             :source => :movie
+
   # Validations
 
   # Scopes
