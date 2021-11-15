@@ -20,6 +20,9 @@ class MovieResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :bookmark_users,
+               resource: UserResource
+
   many_to_many :reviewing_users,
                resource: UserResource
 
